@@ -1,8 +1,13 @@
 import "./App.css";
+import { NavBar } from "./components";
+import { UserProfile } from "./pages";
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-center">Hello world!</h1>
+    <div className="bg-background h-screen text-gray-50">
+      <NavBar />
+      <UserProfile />
+    </div>
   );
 }
 
