@@ -34,7 +34,7 @@ export function Login() {
               <input
                 type="text"
                 placeholder="Email"
-                className="bg-nav-background border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                className="bg-gray-900 placeholder:text-gray-300 w-full h-5 px-3 py-5 mt-2 outline:none hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md placeholder:select-none"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -43,7 +43,7 @@ export function Login() {
               <input
                 type="password"
                 placeholder="Password"
-                className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                className="  bg-gray-900 placeholder:text-gray-300 w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md placeholder:select-none"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required

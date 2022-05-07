@@ -3,6 +3,7 @@ import { useAuth } from "../../context";
 import { useNavigate, Link } from "react-router-dom";
 
 export function SignUp() {
+  const [showPassword, setShowPassword] = useState(false);
   const { token, signUpUser } = useAuth();
   const navigate = useNavigate();
   const signUpFields = {
@@ -47,7 +48,7 @@ export function SignUp() {
                   <input
                     type="text"
                     placeholder="First Name"
-                    className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                    className=" bg-gray-900 placeholder:text-gray-300 select-none w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                     value={signUpForm.firstName}
                     onChange={(e) => fillFormValue(e, "firstName")}
                     required
@@ -58,7 +59,7 @@ export function SignUp() {
                   <input
                     type="text"
                     placeholder="Last Name"
-                    className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                    className=" bg-gray-900 placeholder:text-gray-300 select-none w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                     value={signUpForm.lastName}
                     onChange={(e) => fillFormValue(e, "lastName")}
                     required
@@ -69,7 +70,7 @@ export function SignUp() {
               <input
                 type="text"
                 placeholder="https://github.com/"
-                className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 mb-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                className=" bg-gray-900 placeholder:text-gray-300 select-none w-full h-5 px-3 py-5 mt-2 mb-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                 value={signUpForm.github}
                 onChange={(e) => fillFormValue(e, "github")}
                 required
@@ -78,23 +79,44 @@ export function SignUp() {
               <input
                 type="text"
                 placeholder="Email"
-                className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                className=" bg-gray-900 placeholder:text-gray-300 select-none w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                 value={signUpForm.email}
                 onChange={(e) => fillFormValue(e, "email")}
                 required
               />
               <label className="block mt-3 font-semibold">Password</label>
-              <input
-                type="password"
-                placeholder="Password"
-                className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
-                value={signUpForm.password}
-                onChange={(e) => fillFormValue(e, "password")}
-                required
-              />
+              <div className="flex items-center rounded-md bg-gray-900 focus:ring-1 focus:ring-blue-400 w-full">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className=" bg-gray-900 placeholder:text-gray-300 select-none flex-grow h-5 px-3 py-5  hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                  value={signUpForm.password}
+                  onChange={(e) => fillFormValue(e, "password")}
+                  required
+                />
+                {showPassword ? (
+                  <i
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="mx-3 cursor-pointer fa-solid fa-eye"
+                  ></i>
+                ) : (
+                  <i
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="mx-3 cursor-pointer fa-solid fa-eye-slash"
+                  ></i>
+                )}
+              </div>
+
               <div>
                 <button
-                  className="font-semibold w-full my-6 bg-primary text-white py-2 px-6 rounded-lg hover:bg-primary"
+                  className={`font-semibold w-full my-6 bg-primary text-white py-2 px-6 rounded-lg hover:bg-primary ${
+                    signUpForm.email &&
+                    signUpForm.password &&
+                    signUpForm.firstName &&
+                    signUpForm.lastName !== ""
+                      ? "cursor-pointer"
+                      : "cursor-not-allowed"
+                  }`}
                   onClick={() => signUpHandler()}
                 >
                   Create Account

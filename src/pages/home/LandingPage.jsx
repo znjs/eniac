@@ -37,6 +37,7 @@ function LandingPage() {
         >
           Schedule
         </button>
+
         <h3 className="text-lg font-bold">Open Slots</h3>
         {state.schedules &&
           state.schedules.map((schedule) => (

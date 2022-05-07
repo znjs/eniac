@@ -1,12 +1,28 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { InterviewInfo } from "../../components";
+import { logout } from "../../services";
 import "./userProfile.css";
 function UserProfile() {
+  const navigate = useNavigate();
   return (
     <div className="w-screen userProfile flex justify-center items-center">
-      <div className="userProfile flex justify-center items-center w-1/2">
+      <div className="userProfile flex justify-center items-start mt-40 w-1/2">
         <div className="bg-gray-900 p-4 rounded-lg max-w-sm">
-          <h1 className="text-2xl ">Profile</h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl ">Profile</h1>
+            <button
+              onClick={() => {
+                logout();
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+                navigate("/");
+              }}
+              className="bg-red-600 px-2 py-1 rounded-lg"
+            >
+              Logout
+            </button>
+          </div>
           <div className="flex py-1">
             <p className="pr-2 w-20">Name:</p>
             <p className="px-2 grow">Lindsay R. Schall</p>
@@ -65,11 +81,6 @@ function UserProfile() {
           <h1 className="text-center font-bold text-xl py-4">
             Interview Details
           </h1>
-          <InterviewInfo />
-          <InterviewInfo />
-          <InterviewInfo />
-          <InterviewInfo />
-          <InterviewInfo />
           <InterviewInfo />
           <InterviewInfo />
         </div>
