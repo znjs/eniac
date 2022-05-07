@@ -5,5 +5,9 @@ import { useAuth } from "../context";
 export function PrivateRoute({ children }) {
   const { token } = useAuth();
   const location = useLocation();
-  return token ? children : <Navigate to="/sign-in" state={{ from: location?.pathname }} replace />;
+  return token ? (
+    children
+  ) : (
+    <Navigate to="/sign-in" state={{ from: location?.pathname }} replace />
+  );
 }
