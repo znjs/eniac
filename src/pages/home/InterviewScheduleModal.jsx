@@ -17,7 +17,7 @@ function InterviewScheduleModal() {
     }, 60000);
   }, []);
   const scheduleInterview = () => {
-    if (topics.trim().length === 0 || date.trim().length === 0)
+    if (input.topics.trim().length === 0 || input.date.trim().length === 0)
       console.error("Please fill all fields");
     else {
       dispatch({
