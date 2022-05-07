@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 export function SignUp() {
   const { token, signUpUser } = useAuth();
+  const navigate = useNavigate();
   const signUpFields = {
     email: "",
     password: "",
@@ -27,10 +28,7 @@ export function SignUp() {
   };
 
   if (token) {
-    setTimeout(() => {
-      // navigate("/");
-      console.log("Sign Up");
-    }, 1000);
+    navigate("/");
   }
 
   return (
@@ -49,7 +47,7 @@ export function SignUp() {
                   <input
                     type="text"
                     placeholder="First Name"
-                    className=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                    className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                     value={signUpForm.firstName}
                     onChange={(e) => fillFormValue(e, "firstName")}
                     required
@@ -60,7 +58,7 @@ export function SignUp() {
                   <input
                     type="text"
                     placeholder="Last Name"
-                    className=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                    className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                     value={signUpForm.lastName}
                     onChange={(e) => fillFormValue(e, "lastName")}
                     required
@@ -71,7 +69,7 @@ export function SignUp() {
               <input
                 type="text"
                 placeholder="https://github.com/"
-                className=" border w-full h-5 px-3 py-5 mt-2 mb-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 mb-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                 value={signUpForm.github}
                 onChange={(e) => fillFormValue(e, "github")}
                 required
@@ -80,7 +78,7 @@ export function SignUp() {
               <input
                 type="text"
                 placeholder="Email"
-                className=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                 value={signUpForm.email}
                 onChange={(e) => fillFormValue(e, "email")}
                 required
@@ -89,7 +87,7 @@ export function SignUp() {
               <input
                 type="password"
                 placeholder="Password"
-                className=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                 value={signUpForm.password}
                 onChange={(e) => fillFormValue(e, "password")}
                 required
@@ -103,8 +101,10 @@ export function SignUp() {
                 </button>
               </div>
               <div className="text-center  font-semibold">
-                <Link to="/login">
-                  <p className="cursor-pointer hover:underline">Already Have An Account ?</p>
+                <Link to="/sign-in">
+                  <p className="cursor-pointer hover:underline">
+                    Already Have An Account ?
+                  </p>
                 </Link>
               </div>
             </div>

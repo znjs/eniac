@@ -5,10 +5,10 @@ module.exports = {
     colors: {
       primary: "#3B79B3",
       secondary: "#39BDF8",
-      "nav-background": "#0f172a",
+      "nav-background": "#191921",
       background: "#1A202C",
-      "secondary-background": "#e2e8f0",
-      "txt-color": "#000000",
+      "secondary-background": "#2d2d3a",
+      "txt-color": "#fff",
       "txt-secondary-color": "#64748b",
       "txt-hover-color": "#94a3b8",
       ...colors,

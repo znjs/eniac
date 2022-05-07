@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import { useLocation, useNavigate } from "react-router-dom";
 function NavBar() {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  if (location.pathname === "/sign-in" || location.pathname === "/sign-up") {
+    return null;
+  }
   return (
     <div className="bg-nav-background text-gray-50 py-2 flex justify-between items-center px-2">
       <div className="flex items-center">
@@ -23,7 +30,10 @@ function NavBar() {
           onClick={() => setSearch("")}
         />
       </div>
-      <FaUser className="text-5xl cursor-pointer hover:bg-gray-600 p-2 rounded-full" />
+      <FaUser
+        onClick={() => navigate("/profile")}
+        className="text-5xl cursor-pointer hover:bg-gray-600 p-2 rounded-full"
+      />
     </div>
   );
 }

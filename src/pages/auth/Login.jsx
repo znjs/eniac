@@ -5,6 +5,7 @@ import { useAuth } from "../../context";
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const { loginUser, token } = useAuth();
 
   const loginHandler = async () => {
@@ -16,10 +17,7 @@ export function Login() {
   };
 
   if (token) {
-    setTimeout(() => {
-      // navigate("/")
-      console.log("Login");
-    }, 1000);
+    navigate("/");
   }
   return (
     <div className="bg-background w-full h-screen px-4 py-6 flex flex-col justify-center sm:py-12">
@@ -36,7 +34,7 @@ export function Login() {
               <input
                 type="text"
                 placeholder="Email"
-                className=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                className="bg-nav-background border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -45,7 +43,7 @@ export function Login() {
               <input
                 type="password"
                 placeholder="Password"
-                className=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
+                className=" border bg-nav-background w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-blue-400 rounded-md"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -60,7 +58,9 @@ export function Login() {
               </div>
               <div className="text-center font-semibold">
                 <Link to="/sign-up">
-                  <p className="cursor-pointer hover:underline">Create New Account</p>
+                  <p className="cursor-pointer hover:underline">
+                    Create New Account
+                  </p>
                 </Link>
               </div>
             </div>
