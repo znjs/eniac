@@ -5,7 +5,7 @@ module.exports = {
     colors: {
       primary: "#3B79B3",
       secondary: "#39BDF8",
-      "nav-background": "#FFFFFF",
+      "nav-background": "#0f172a",
       background: "#1A202C",
       "secondary-background": "#e2e8f0",
       "txt-color": "#000000",
