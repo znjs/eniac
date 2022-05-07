@@ -4,7 +4,13 @@ import {
   registerWithEmailAndPassword,
 } from "../../services/auth-service";
 import { toast } from "react-toastify";
-import { collection, db, getDocs, query, where } from "../../firebase/firebase.config";
+import {
+  collection,
+  db,
+  getDocs,
+  query,
+  where,
+} from "../../firebase/firebase.config";
 
 const AuthContext = createContext();
 
@@ -14,7 +20,7 @@ const AuthProvider = ({ children }) => {
   const localStorageUser = localStorage.getItem("user");
   const [user, setUser] = useState(localStorageUser);
   const [userInfo, setUserInfo] = useState();
-
+  console.log(userInfo);
   useEffect(() => {
     if (token && user) {
       (async () => {
@@ -53,7 +59,12 @@ const AuthProvider = ({ children }) => {
 
   const signUpUser = async (name, email, password, github) => {
     try {
-      const authRes = await registerWithEmailAndPassword(name, email, password, github);
+      const authRes = await registerWithEmailAndPassword(
+        name,
+        email,
+        password,
+        github,
+      );
       const user = authRes?.user;
       if (user) {
         localStorage.setItem("token", user.accessToken);
@@ -69,7 +80,16 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ token, setToken, user, setUser, loginUser, signUpUser, userInfo, setUserInfo }}
+      value={{
+        token,
+        setToken,
+        user,
+        setUser,
+        loginUser,
+        signUpUser,
+        userInfo,
+        setUserInfo,
+      }}
     >
       {children}
     </AuthContext.Provider>

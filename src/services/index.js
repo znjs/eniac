@@ -1,3 +1,4 @@
+export * from "./interview-service";
 export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,

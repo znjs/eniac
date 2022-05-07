@@ -1,18 +1,39 @@
 import React, { useState, useEffect } from "react";
-import { useInterviewModal } from "../../context";
+import { useAuth, useInterview, useInterviewModal } from "../../context";
 import date from "date-and-time";
 import "./modal.css";
 import "./calendar.css";
+import { addAndUpdateSchedule } from "../../services";
 
 function InterviewScheduleModal() {
   const [input, setInput] = useState({ date: "", topics: "" });
   const { interviewModal, setInterviewModal } = useInterviewModal();
   const [now, setNow] = useState(new Date());
+  const { userInfo } = useAuth();
+  const { dispatch } = useInterview();
   useEffect(() => {
     setInterval(() => {
       setNow(new Date());
     }, 60000);
   }, []);
+  const scheduleInterview = () => {
+    if (topics.trim().length === 0 || date.trim().length === 0)
+      console.error("Please fill all fields");
+    else {
+      dispatch({
+        type: "ADD_SCHEDULE",
+        payload: {
+          schedule: {
+            topics: input.topics,
+            email: userInfo.email,
+            interviewDate: input.date.replace("T", " "),
+          },
+        },
+      });
+      setInterviewModal(false);
+      addAndUpdateSchedule(userInfo, input.date, "", input.topics);
+    }
+  };
   return (
     <div
       className={`modal-container justify-center items-center fixed ${
@@ -53,7 +74,7 @@ function InterviewScheduleModal() {
         </div>
         <button
           className="px-4 py-1 rounded-lg bg-blue-500 text-white font-bold hover:bg-blue-400 max-w-xs mx-auto"
-          onClick={() => console.log(input)}
+          onClick={scheduleInterview}
         >
           Schedule
         </button>
