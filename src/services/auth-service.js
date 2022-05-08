@@ -12,7 +12,12 @@ export const logInWithEmailAndPassword = async (email, password) => {
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-export const registerWithEmailAndPassword = async (name, email, password, github) => {
+export const registerWithEmailAndPassword = async (
+  name,
+  email,
+  password,
+  github,
+) => {
   const res = await createUserWithEmailAndPassword(auth, email, password);
   console.log(github);
   const user = res.user;
@@ -28,8 +33,4 @@ export const registerWithEmailAndPassword = async (name, email, password, github
     });
   }
   return res;
-};
-
-export const logout = () => {
-  signOut(auth);
 };

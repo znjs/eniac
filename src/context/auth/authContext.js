@@ -5,8 +5,10 @@ import {
 } from "../../services/auth-service";
 import { toast } from "react-toastify";
 import {
+  auth,
   collection,
   db,
+  signOut,
   getDocs,
   query,
   where,
@@ -78,6 +80,15 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const logoutHandler = () => {
+    signOut(auth);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setToken(null);
+    setUser(null);
+    setUserInfo(null);
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -89,6 +100,7 @@ const AuthProvider = ({ children }) => {
         signUpUser,
         userInfo,
         setUserInfo,
+        logoutHandler,
       }}
     >
       {children}
