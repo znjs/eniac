@@ -4,13 +4,13 @@ const sendMailToUsers = (...users) => {
   let mailTransporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.SUDO_EMAIL,
-      pass: process.env.SUDO_PASSWORD,
+      user: process.env.REACT_APP_SUDO_EMAIL,
+      pass: process.env.REACT_APP_SUDO_PASSWORD,
     },
   });
 
   let mailDetails = {
-    from: process.env.SUDO_EMAIL,
+    from: process.env.REACT_APP_SUDO_EMAIL,
     to: users.join(","),
     subject: "Test mail",
     html: `
