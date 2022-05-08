@@ -7,6 +7,8 @@ import { db } from "../../firebase/firebase.config";
 import { InterviewScheduleModal } from "./InterviewScheduleModal";
 import { OpenSlotCard } from "./OpenSlotCard";
 import date from "date-and-time";
+import "./landingPage.css";
+
 function LandingPage() {
   const { setInterviewModal } = useInterviewModal();
   const { state, dispatch } = useInterview();
@@ -49,8 +51,8 @@ function LandingPage() {
   }, [state.schedules]);
 
   return (
-    <>
-      <div className="flex flex-col items-center bg-background min-h-screen text-txt-color">
+    <div className="main-container">
+      <div className="flex flex-col items-center bg-background h-screen text-txt-color ">
         <button
           className="bg-primary my-2 p-2 font-bold rounded"
           onClick={() => setInterviewModal(true)}
@@ -70,7 +72,7 @@ function LandingPage() {
         )}
       </div>
       <InterviewScheduleModal />
-    </>
+    </div>
   );
 }
 
