@@ -1,14 +1,14 @@
 .userProfile {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 80px);
     overflow: auto;
 }
 
 .interviewList {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 80px);
 }
 
-@media screen and (max-width:767px){
+@media screen and (max-width:767px) {
     .userProfile {
-        height: calc(100vh - 64px)
+        height: calc(100vh - 80px)
     }
 }

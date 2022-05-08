@@ -37,9 +37,16 @@ export function SignUp() {
         <div className="mt-4 bg-secondary-background shadow-md sm:rounded-lg text-left rounded-lg">
           <div className="h-2 bg-primary rounded-t-lg"></div>
           <div className="px-12 py-4 pb-8 ">
-            <span className="text-2xl flex justify-center font-semibold border-b-2 border-blue-400 pb-2">
-              Sign Up
-            </span>
+            <div className="flex-col justify-evenly items-center border-b-2 border-blue-400 py-2">
+              <img
+                className="h-16 mx-auto"
+                src="https://res.cloudinary.com/donqbxlnc/image/upload/v1651952778/NeoPortal_logo_sw-modified_hxba46.png"
+                alt="logo"
+              />
+              <span className="text-2xl flex justify-center font-semibold  pb-2">
+                Sign Up
+              </span>
+            </div>
             <div className="pt-8">
               <div className="flex gap-4 sm:flex-col mb-4">
                 <div>

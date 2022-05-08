@@ -35,16 +35,15 @@ function App() {
   }, [location.pathname]);
 
   return (
-     
     <div className="bg-background h-screen text-txt-color">
-
       <NavBar search={search} setSearch={setSearch} />
-           <ToastContainer
-          position="top-right"
-          autoClose="2000"
-          limit="1"
-          style={{ top: "4.5em", right: "0em" }}
-        />
+      <ToastContainer
+        position="top-right"
+        autoClose="2000"
+        limit="1"
+        style={{ top: "4.5em", right: "0em" }}
+        theme="dark"
+      />
       <Routes>
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />

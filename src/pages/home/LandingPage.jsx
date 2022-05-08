@@ -50,7 +50,7 @@ function LandingPage() {
           </>
         ) : (
           <h3 className="text-3xl font-bold flex items-center mt-8">
-            Sorry , Slots not available at the moment !
+            No open slots available! You can create a Slot
           </h3>
         )}
       </div>

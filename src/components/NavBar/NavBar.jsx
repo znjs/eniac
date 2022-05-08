@@ -10,7 +10,6 @@ function NavBar({ search, setSearch }) {
     return null;
   }
   return (
-
     <div className="bg-nav-background text-gray-50 flex justify-between items-center p-4">
       <div
         className="flex items-center cursor-pointer"
@@ -21,11 +20,14 @@ function NavBar({ search, setSearch }) {
         <img
           className="h-10"
           src="https://res.cloudinary.com/donqbxlnc/image/upload/v1651952778/NeoPortal_logo_sw-modified_hxba46.png"
+          alt="logo"
         />
         <p className="px-4 text-3xl select-none  font-bold">NeoPortal</p>
-
       </div>
-      <div className="flex items-center bg-gray-800 rounded px-2 w-3/6 justify-between">
+      <div
+        className="flex items-center bg-gray-800 rounded px-2 w-3/6 max-w-md justify-between
+      sm:hidden "
+      >
         <input
           type="text"
           placeholder="Search . . ."
