@@ -5,6 +5,7 @@ import { useInterview, useInterviewModal } from "../../context";
 import { db } from "../../firebase/firebase.config";
 import { InterviewScheduleModal } from "./InterviewScheduleModal";
 import { OpenSlotCard } from "./OpenSlotCard";
+import "./landingPage.css";
 
 function LandingPage() {
   const { setInterviewModal } = useInterviewModal();
@@ -29,8 +30,8 @@ function LandingPage() {
   }, []);
 
   return (
-    <>
-      <div className="flex flex-col items-center bg-background h-screen text-txt-color">
+    <div className="main-container">
+      <div className="flex flex-col items-center bg-background h-screen text-txt-color ">
         <button
           className="bg-primary my-2 p-2 font-bold rounded"
           onClick={() => setInterviewModal(true)}
@@ -45,7 +46,7 @@ function LandingPage() {
           ))}
       </div>
       <InterviewScheduleModal />
-    </>
+    </div>
   );
 }
 
