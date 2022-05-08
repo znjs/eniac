@@ -29,9 +29,9 @@ const sendMailToUsers = (...users) => {
 
   mailTransporter.sendMail(mailDetails, function (err, data) {
     if (err) {
-      console.log("Error Occurs");
+      console.error("Error Occurs");
     } else {
-      console.log("Email sent successfully");
+      console.error("Email sent successfully");
     }
   });
 };

@@ -1,11 +1,11 @@
-body {
+/* body {
   background-color: #111827;
   width: 100vw;
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
-}
+/* } */
 
-.app {
+.error-page-app {
   width: 100%;
   min-height: 100%;
   display: flex;
@@ -13,53 +13,53 @@ body {
   align-items: center;
   justify-content: center;
 }
-.app .text-container {
+.error-page-app .text-container {
   position: relative;
   z-index: 1;
   margin: 1rem 0;
   text-align: center;
 }
-.app .text-container h1 {
+.error-page-app .text-container h1 {
   color: white;
-  font-family: 'Pridi';
+  font-family: "Pridi";
   font-size: 5rem;
   margin-bottom: 1rem;
 }
-.app .text-container p {
+.error-page-app .text-container p {
   color: #6b7280;
   font-weight: 500;
   letter-spacing: 0.05rem;
   margin: 0.5rem 0;
 }
-.app .text-container a {
+.error-page-app .text-container a {
   color: #06b6d4;
 }
-.app .text-container a:hover {
+.error-page-app .text-container a:hover {
   border-bottom: 0.2rem solid #06b6d4;
 }
 
-svg {
+.svg {
   background-color: #374151;
   width: 100%;
   overflow: visible;
 }
-svg > path:nth-child(1) {
+.svg > path:nth-child(1) {
   fill: #4b5563;
   stroke: #1f2937;
 }
-svg > path:nth-child(2) {
+.svg > path:nth-child(2) {
   fill: #111827;
 }
-svg > path:nth-child(6) {
+.svg > path:nth-child(6) {
   fill: #1f2937;
 }
-svg text {
+.svg text {
   fill: #6b7280;
   font-size: 660px;
   font-weight: 800;
   filter: drop-shadow(0 0 50px #1f2937);
 }
-svg > path:nth-child(8) {
+.svg > path:nth-child(8) {
   fill: #111827;
 }
 

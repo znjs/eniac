@@ -14,9 +14,8 @@ function LandingPage() {
   const { setInterviewModal } = useInterviewModal();
   const { state } = useInterview();
   const { userInfo } = useAuth();
-  const [filteredSchedules, setFilteredSchedules] = useState(state.schedules);
+  const [filteredSchedules, setFilteredSchedules] = useState([]);
 
-  // consol
   useEffect(() => {
     setFilteredSchedules(
       state.schedules.filter(

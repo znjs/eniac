@@ -34,45 +34,46 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <>
-      <div className="bg-background h-screen text-txt-color">
-        <NavBar />
-        <ToastContainer
+     
+    <div className="bg-background h-screen text-txt-color">
+     
+      <NavBar />
+           <ToastContainer
           position="top-right"
           autoClose="2000"
           limit="1"
           style={{ top: "4.5em", right: "0em" }}
         />
-        <Routes>
-          <Route path="/sign-in" element={<Login />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route
-            path="/"
-            element={
-              <PrivateRoute>
-                <LandingPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/userListing"
-            element={
-              <PrivateRoute>
-                <UserListing />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <PrivateRoute>
-                <UserProfile />
-              </PrivateRoute>
-            }
-          />
-        </Routes>
-      </div>
-    </>
+      <Routes>
+        <Route path="/sign-in" element={<Login />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <LandingPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/userListing"
+          element={
+            <PrivateRoute>
+              <UserListing />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <UserProfile />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </div>
   );
 }
 
