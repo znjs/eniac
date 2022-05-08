@@ -5,7 +5,6 @@ export const initialState = {
 export const reducer = (state, action) => {
   switch (action.type) {
     case "SET_ALL_SCHEDULES":
-      console.log(action.payload);
       return {
         ...state,
         schedules: action.payload.schedules,

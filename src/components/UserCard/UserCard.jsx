@@ -1,7 +1,6 @@
 import React from "react";
 
 function UserCard({ user }) {
-  console.log(user);
   const { email, githubId, linkedIn, name, portfolio, twitter } = user;
   return (
     <div className="bg-gray-900 p-2 rounded-lg w-80 m-2">

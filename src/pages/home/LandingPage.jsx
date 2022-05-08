@@ -11,41 +11,18 @@ import "./landingPage.css";
 
 function LandingPage() {
   const { setInterviewModal } = useInterviewModal();
-  const { state, dispatch } = useInterview();
+  const { state } = useInterview();
   const { userInfo } = useAuth();
   const [filteredSchedules, setFilteredSchedules] = useState(state.schedules);
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await getDocs(collection(db, "scheduleBoard"));
-        console.log(res);
-        const q = query(
-          collection(db, "scheduleBoard"),
-          where("interviewee", "==", ""),
-        );
-
-        const querySnapshot = await getDocs(q);
-        const newSchedules = [];
-        querySnapshot.forEach((doc) => newSchedules.push(doc.data()));
-        dispatch({
-          type: "SET_ALL_SCHEDULES",
-          payload: {
-            schedules: newSchedules,
-          },
-        });
-      } catch (err) {
-        console.error(err);
-      }
-    })();
-    console.log(state.schedules);
-  }, []);
 
   // consol
   useEffect(() => {
     setFilteredSchedules(
       state.schedules.filter(
         (ele) =>
-          ele?.email !== userInfo?.email && new Date(ele.date) > new Date(),
+          ele?.email !== userInfo?.email &&
+          new Date(ele.date) > new Date() &&
+          ele.intervieweeEmail === "",
       ),
     );
   }, [state.schedules]);

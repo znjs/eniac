@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
   const localStorageUser = localStorage.getItem("user");
   const [user, setUser] = useState(localStorageUser);
   const [userInfo, setUserInfo] = useState();
-  console.log(userInfo);
+
   useEffect(() => {
     if (token && user) {
       (async () => {

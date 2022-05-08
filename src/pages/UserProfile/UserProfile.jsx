@@ -11,14 +11,21 @@ function UserProfile() {
   const [filteredSchedules, setFilteredSchedules] = useState([]);
   const { state } = useInterview();
 
-  useEffect(
-    () =>
+  useEffect(() => {
+    if (state.schedules)
       setFilteredSchedules(
-        state.schedules.filter((ele) => ele.email === userInfo.email),
-      ),
-    [state.schedules],
-  );
-  console.log(userInfo, "userinfo");
+        [
+          ...state.schedules.filter(
+            (ele) =>
+              ele.email === userInfo.email ||
+              ele.intervieweeEmail === userInfo.email,
+          ),
+        ].sort((a, b) => new Date(a.date) - new Date(b.date)),
+      );
+  }, [state.schedules]);
+  console.log(filteredSchedules, "filter sch");
+  console.log(state, "usrpro");
+
   return (
     <div className="w-screen userProfile flex justify-center items-center">
       {userInfo && (

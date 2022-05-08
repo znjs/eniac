@@ -19,7 +19,6 @@ export const registerWithEmailAndPassword = async (
   github,
 ) => {
   const res = await createUserWithEmailAndPassword(auth, email, password);
-  console.log(github);
   const user = res.user;
   if (user) {
     await addDoc(collection(db, "users"), {
