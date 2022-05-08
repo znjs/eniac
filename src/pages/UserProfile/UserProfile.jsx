@@ -1,10 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { InterviewInfo } from "../../components";
-import { logout } from "../../services";
+import { useAuth } from "../../context";
 import "./userProfile.css";
 function UserProfile() {
   const navigate = useNavigate();
+  const { logoutHandler } = useAuth();
+
   return (
     <div className="w-screen userProfile flex justify-center items-center">
       <div className="userProfile flex justify-center items-start mt-40 w-1/2">
@@ -13,10 +15,7 @@ function UserProfile() {
             <h1 className="text-2xl ">Profile</h1>
             <button
               onClick={() => {
-                logout();
-                localStorage.removeItem("token");
-                localStorage.removeItem("user");
-                navigate("/");
+                logoutHandler();
               }}
               className="bg-red-600 px-2 py-1 rounded-lg"
             >
