@@ -6,13 +6,14 @@ import { NavBar, PrivateRoute } from "./components";
 import { LandingPage, Login, SignUp, UserListing, UserProfile } from "./pages";
 import { ToastContainer } from "react-toastify";
 import { useInterview } from "./context";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase/firebase.config";
 
 function App() {
   const location = useLocation();
   const { state, dispatch } = useInterview();
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -35,7 +36,7 @@ function App() {
 
   return (
     <div className="bg-background h-screen text-txt-color">
-      <ToastContainer
+      {/* <ToastContainer
         position="top-right"
         style={{ top: "4.5em", right: "0em" }}
         autoClose={2000}
@@ -46,8 +47,8 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      />
-      <NavBar />
+      /> */}
+      <NavBar search={search} setSearch={setSearch} />
       <Routes>
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
@@ -63,7 +64,7 @@ function App() {
           path="/userListing"
           element={
             <PrivateRoute>
-              <UserListing />
+              <UserListing search={search} setSearch={setSearch} />
             </PrivateRoute>
           }
         />

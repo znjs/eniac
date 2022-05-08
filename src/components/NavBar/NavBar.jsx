@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useLocation, useNavigate } from "react-router-dom";
-function NavBar() {
-  const [search, setSearch] = useState("");
+function NavBar({ search, setSearch }) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -17,6 +16,7 @@ function NavBar() {
           className="px-4 text-3xl select-none cursor-pointer"
           onClick={() => {
             navigate("/");
+            setSearch("");
           }}
         >
           NeoPortal
@@ -29,6 +29,9 @@ function NavBar() {
           className="bg-gray-800 outline-none rounded px-4 py-2 text-gray-50 placeholder:text-gray-300"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          onKeyUp={(e) => {
+            if (e.code === "Enter") navigate("/userListing");
+          }}
         />
         <AiOutlineClose
           className="text-gray-300 text-xl cursor-pointer"
@@ -36,7 +39,10 @@ function NavBar() {
         />
       </div>
       <FaUser
-        onClick={() => navigate("/profile")}
+        onClick={() => {
+          navigate("/profile");
+          setSearch("");
+        }}
         className="text-5xl cursor-pointer hover:bg-gray-600 p-2 rounded-full"
       />
     </div>

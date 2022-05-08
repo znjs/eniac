@@ -13,13 +13,13 @@ function UserCard({ user }) {
         <p className="flex-grow">{email}</p>
       </div>
       <div className="flex items-center py-1 w-full">
-        <p className="w-20">GithubId:</p>
+        <p className="w-20">Github Id:</p>
         <p className="flex-grow">{githubId || "No Entry Found"}</p>
       </div>
-      <div className="flex items-center py-1 w-full">
+      {/* <div className="flex items-center py-1 w-full">
         <p className="w-20">Portfolio:</p>
         <p className="flex-grow">{portfolio || "No Entry Found"}</p>
-      </div>
+      </div> */}
     </div>
   );
 }
