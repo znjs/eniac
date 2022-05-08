@@ -23,13 +23,21 @@ function UserProfile() {
         ].sort((a, b) => new Date(a.date) - new Date(b.date)),
       );
   }, [state.schedules]);
-
+  console.log(filteredSchedules);
   return (
-    <div className="w-screen userProfile flex justify-center items-center md:flex-col">
+    <div className="w-screen userProfile flex-col items-center">
       {userInfo && (
-        <div className="userProfile flex justify-center items-start mt-36 w-1/2 md:w-full">
-          <div className="bg-gray-900 p-4 rounded-lg w-80 flex flex-col gap-4">
-            <h1 className="text-xl font-bold text-center">Profile Details</h1>
+        <div className="flex justify-center items-start mt-16">
+          <div className="bg-gray-900 p-4 rounded-lg w-80">
+            <div className="flex justify-between items-center flex-wrap">
+              <h1 className="text-2xl ">Profile</h1>
+              <button
+                onClick={logoutHandler}
+                className="bg-red-600 px-2 py-1 rounded-lg"
+              >
+                Logout
+              </button>
+            </div>
             <div className="flex py-1 flex-wrap">
               <p className="pr-2 w-20">Name: </p>
               <p className="px-2 grow">{userInfo.name}</p>
@@ -61,15 +69,26 @@ function UserProfile() {
           </div>
         </div>
       )}
-      <div className="userProfile flex justify-center items-center w-1/2 md:w-full">
-        <div className="userProfile">
+      <div className="flex justify-center items-center  overflow-auto">
+        <div>
           <h1 className="text-center font-bold text-xl py-4">
             Interview Details
           </h1>
-          <div className=" overflow-auto">
-            {filteredSchedules.map((schedule) => (
-              <InterviewInfo key={schedule.uid} schedule={schedule} />
-            ))}
+          <p className="text-center italic">Scheduled by You:</p>
+          <div className="flex justify-center gap-x-1 w-screen overflow-x-auto">
+            {filteredSchedules
+              .filter((item) => item.email === userInfo.email)
+              .map((schedule) => (
+                <InterviewInfo key={schedule.uid} schedule={schedule} />
+              ))}
+          </div>
+          <p className="text-center italic">Accepted by You:</p>
+          <div className="flex justify-center gap-x-1 w-screen overflow-x-auto">
+            {filteredSchedules
+              .filter((item) => item.intervieweeEmail === userInfo.email)
+              .map((schedule) => (
+                <InterviewInfo key={schedule.uid} schedule={schedule} />
+              ))}
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { useAuth } from "../../context";
 function InterviewInfo({ schedule }) {
   const { userInfo } = useAuth();
   return (
-    <div className="bg-gray-900 p-4 my-3 rounded-lg">
+    <div className="bg-gray-900 p-4 my-3 rounded-lg min-w-[344px]">
       {schedule.interviewee === "" ? (
         <>
           <div className="flex py-1">Not Yet Scheduled</div>
