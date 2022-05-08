@@ -10,23 +10,26 @@ function NavBar({ search, setSearch }) {
     return null;
   }
   return (
-    <div className="bg-nav-background text-gray-50 py-2 flex justify-between items-center px-2">
-      <div className="flex items-center">
-        <p
-          className="px-4 text-3xl select-none cursor-pointer"
-          onClick={() => {
-            navigate("/");
-            setSearch("");
-          }}
-        >
-          NeoPortal
-        </p>
+
+    <div className="bg-nav-background text-gray-50 flex justify-between items-center p-4">
+      <div
+        className="flex items-center cursor-pointer"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        <img
+          className="h-10"
+          src="https://res.cloudinary.com/donqbxlnc/image/upload/v1651952778/NeoPortal_logo_sw-modified_hxba46.png"
+        />
+        <p className="px-4 text-3xl select-none  font-bold">NeoPortal</p>
+
       </div>
-      <div className="flex items-center bg-gray-800 rounded px-2">
+      <div className="flex items-center bg-gray-800 rounded px-2 w-3/6 justify-between">
         <input
           type="text"
           placeholder="Search . . ."
-          className="bg-gray-800 outline-none rounded px-4 py-2 text-gray-50 placeholder:text-gray-300"
+          className="bg-gray-800 outline-none rounded px-4 py-2 text-gray-50 placeholder:text-gray-300 grow"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           onKeyUp={(e) => {
@@ -34,7 +37,7 @@ function NavBar({ search, setSearch }) {
           }}
         />
         <AiOutlineClose
-          className="text-gray-300 text-xl cursor-pointer"
+          className="text-gray-300 text-xl cursor-pointer w-4"
           onClick={() => setSearch("")}
         />
       </div>
@@ -43,6 +46,7 @@ function NavBar({ search, setSearch }) {
           navigate("/profile");
           setSearch("");
         }}
+        aria-hidden="true"
         className="text-5xl cursor-pointer hover:bg-gray-600 p-2 rounded-full"
       />
     </div>

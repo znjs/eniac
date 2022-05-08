@@ -4,6 +4,7 @@ import date from "date-and-time";
 import "./modal.css";
 import "./calendar.css";
 import { addAndUpdateSchedule } from "../../services";
+import { toast } from "react-toastify";
 
 function InterviewScheduleModal() {
   const [input, setInput] = useState({ date: "", topics: "" });
@@ -18,7 +19,7 @@ function InterviewScheduleModal() {
   }, []);
   const scheduleInterview = () => {
     if (input.topics.trim().length === 0 || input.date.trim().length === 0)
-      console.error("Please fill all fields");
+      toast.error("Please fill all fields");
     else {
       dispatch({
         type: "ADD_SCHEDULE",
@@ -33,6 +34,7 @@ function InterviewScheduleModal() {
       });
       setInterviewModal(false);
       addAndUpdateSchedule(userInfo, input.date, "", input.topics);
+      toast.success("Slot Added Successfully !");
     }
   };
   return (
@@ -44,15 +46,20 @@ function InterviewScheduleModal() {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="modal-container-main flex flex-col justify-center relative text-center gap-4 p-4 rounded-xl w-96  bg-nav-background pt-12"
+        className="modal-container-main flex flex-col justify-center relative text-center gap-4 p-4 rounded-xl w-96  bg-nav-background py-4"
       >
-        <i
-          className="text-2xl fa-solid absolute fa-angle-left cursor-pointer top-4"
-          style={{ color: "#FFF" }}
-          onClick={() => setInterviewModal(false)}
-        ></i>
+        <div className="flex items-center">
+          <i
+            className="text-2xl fa-solid fa-angle-left cursor-pointer"
+            style={{ color: "#FFF" }}
+            onClick={() => setInterviewModal(false)}
+          />
+          <p className="text-center ml-4">
+            Note : Created slots will be only visible to other users.
+          </p>
+        </div>
 
-        <div className="flex items-center text-txt-color justify-around">
+        <div className="flex items-center text-txt-color justify-around mt-4">
           <label>Enter Slot</label>
           <input
             type="datetime-local"
@@ -74,7 +81,7 @@ function InterviewScheduleModal() {
           />
         </div>
         <button
-          className="px-4 py-1 rounded-lg bg-blue-500 text-white font-bold hover:bg-blue-400 max-w-xs mx-auto"
+          className="px-4 py-1 mt-4 rounded-lg bg-blue-500 text-white font-bold hover:bg-blue-400 w-full mx-auto"
           onClick={scheduleInterview}
         >
           Schedule

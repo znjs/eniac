@@ -60,6 +60,12 @@ function UserProfile() {
                 </a>
               </p>
             </div>
+            <button
+              onClick={logoutHandler}
+              className="bg-red-600 px-2 py-1 rounded-lg mt-4"
+            >
+              Logout
+            </button>
           </div>
         </div>
       )}

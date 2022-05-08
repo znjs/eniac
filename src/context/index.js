@@ -11,3 +11,4 @@ export {
   useInterview,
   InterviewContextProvider,
 } from "./interviews/interviewContext";
+export { useConfirmModal, ConfirmModalProvider } from "./ConfirmModal";
