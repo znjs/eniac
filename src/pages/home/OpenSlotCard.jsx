@@ -1,12 +1,10 @@
 import React from "react";
 import { useAuth, useInterview } from "../../context";
 import { addAndUpdateSchedule } from "../../services";
-import date from "date-and-time";
 
 function OpenSlotCard({ schedule }) {
   const { userInfo } = useAuth();
   const { dispatch, state } = useInterview();
-  // let d = ;
   const joinHandler = async () => {
     await addAndUpdateSchedule(
       userInfo,
@@ -14,10 +12,10 @@ function OpenSlotCard({ schedule }) {
       userInfo.name,
       schedule.topics,
       schedule.uid,
+      userInfo.email,
     );
     dispatch({ type: "BOOK_SCHEDULE", payload: { schedule } });
   };
-  // console.log(schedule.date.split("T")[0]);
   return (
     <>
       {schedule && (
@@ -30,7 +28,9 @@ function OpenSlotCard({ schedule }) {
               </button>
             </div>
             <div className="flex flex-col justify-center gap-2">
-              {new Date(schedule.date).toDateString()}
+              {`${new Date(schedule.date).toDateString()}, ${new Date(
+                schedule.date,
+              ).toLocaleTimeString()}`}
               <p>Topics - {schedule.topics}</p>
             </div>
           </div>
