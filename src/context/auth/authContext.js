@@ -8,7 +8,6 @@ import {
   auth,
   collection,
   db,
-  signOut,
   getDocs,
   query,
   signOut,
