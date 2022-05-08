@@ -3,7 +3,6 @@ import {
   db,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signOut,
   addDoc,
   collection,
 } from "../firebase/firebase.config";

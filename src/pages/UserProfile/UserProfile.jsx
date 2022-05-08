@@ -1,12 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { InterviewInfo } from "../../components";
 import { useAuth, useInterview } from "../../context";
 import "./userProfile.css";
 function UserProfile() {
-  const navigate = useNavigate();
   const { logoutHandler, userInfo } = useAuth();
   const [filteredSchedules, setFilteredSchedules] = useState([]);
   const { state } = useInterview();
@@ -53,7 +52,10 @@ function UserProfile() {
               </p>
             </div>
             <button
-              onClick={logoutHandler}
+              onClick={() => {
+                logoutHandler();
+                toast.success(`Logged out Successfully!`);
+              }}
               className="bg-red-600 px-2 py-1 rounded-lg mt-4 w-full text-center "
             >
               Logout

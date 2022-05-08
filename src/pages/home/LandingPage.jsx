@@ -1,12 +1,9 @@
-import { collection, getDocs, query, where } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useAuth, useInterview, useInterviewModal } from "../../context";
-import { db } from "../../firebase/firebase.config";
 import { InterviewScheduleModal } from "./InterviewScheduleModal";
 import { OpenSlotCard } from "./OpenSlotCard";
-import date from "date-and-time";
 import "./landingPage.css";
 import { OpenConfirmModal } from "./OpenConfirmModal";
 
