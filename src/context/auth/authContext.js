@@ -76,7 +76,12 @@ const AuthProvider = ({ children }) => {
         toast.success(`Account Created Successfully!`);
       }
     } catch (error) {
-      console.log(error);
+      const msg = error.message
+        .match(/\/(\S+)[)]./i)[1]
+        .replace(/-/g, " ")
+        .toUpperCase();
+      toast.error(`${msg} !`);
+      console.log(error.message);
     }
   };
   const logoutHandler = () => {

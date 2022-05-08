@@ -27,19 +27,11 @@ function UserProfile() {
   console.log(state, "usrpro");
 
   return (
-    <div className="w-screen userProfile flex justify-center items-center">
+    <div className="w-screen userProfile flex justify-center items-center md:flex-col">
       {userInfo && (
-        <div className="userProfile flex justify-center items-start mt-40 w-1/2">
-          <div className="bg-gray-900 p-4 rounded-lg w-80">
-            <div className="flex justify-between items-center flex-wrap">
-              <h1 className="text-2xl ">Profile</h1>
-              <button
-                onClick={logoutHandler}
-                className="bg-red-600 px-2 py-1 rounded-lg"
-              >
-                Logout
-              </button>
-            </div>
+        <div className="userProfile flex justify-center items-start mt-36 w-1/2 md:w-full">
+          <div className="bg-gray-900 p-4 rounded-lg w-80 flex flex-col gap-4">
+            <h1 className="text-xl font-bold text-center">Profile Details</h1>
             <div className="flex py-1 flex-wrap">
               <p className="pr-2 w-20">Name: </p>
               <p className="px-2 grow">{userInfo.name}</p>
@@ -62,17 +54,25 @@ function UserProfile() {
                 </a>
               </p>
             </div>
+            <button
+              onClick={logoutHandler}
+              className="bg-red-600 px-2 py-1 rounded-lg mt-4"
+            >
+              Logout
+            </button>
           </div>
         </div>
       )}
-      <div className="userProfile flex justify-center items-center w-1/2 overflow-auto">
+      <div className="userProfile flex justify-center items-center w-1/2 md:w-full">
         <div className="userProfile">
           <h1 className="text-center font-bold text-xl py-4">
             Interview Details
           </h1>
-          {filteredSchedules.map((schedule) => (
-            <InterviewInfo key={schedule.uid} schedule={schedule} />
-          ))}
+          <div className=" overflow-auto">
+            {filteredSchedules.map((schedule) => (
+              <InterviewInfo key={schedule.uid} schedule={schedule} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import { InterviewScheduleModal } from "./InterviewScheduleModal";
 import { OpenSlotCard } from "./OpenSlotCard";
 import date from "date-and-time";
 import "./landingPage.css";
+import { OpenConfirmModal } from "./OpenConfirmModal";
 
 function LandingPage() {
   const { setInterviewModal } = useInterviewModal();
@@ -30,24 +31,31 @@ function LandingPage() {
   return (
     <div className="main-container">
       <div className="flex flex-col items-center bg-background h-screen text-txt-color ">
-        <button
-          className="bg-primary my-2 p-2 font-bold rounded"
-          onClick={() => setInterviewModal(true)}
-        >
-          Create Slot
-        </button>
+        <div>
+          <button
+            className="bg-primary my-8 p-2 font-bold rounded"
+            onClick={() => setInterviewModal(true)}
+          >
+            Create Slot
+          </button>
+        </div>
 
         {filteredSchedules.length > 0 ? (
           <>
-            <h3 className="text-lg font-bold">Open Slots</h3>
+            <h3 className="text-3xl font-bold flex items-center mt-8 mb-4">
+              Available Slots for Interview
+            </h3>
             {filteredSchedules.map((schedule) => (
               <OpenSlotCard key={schedule.uid} schedule={schedule} />
             ))}
           </>
         ) : (
-          <h3 className="text-lg font-bold">No Open Slots</h3>
+          <h3 className="text-3xl font-bold flex items-center mt-8">
+            Sorry , Slots not available at the moment !
+          </h3>
         )}
       </div>
+      <OpenConfirmModal />
       <InterviewScheduleModal />
     </div>
   );
