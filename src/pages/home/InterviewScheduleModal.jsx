@@ -24,6 +24,7 @@ function InterviewScheduleModal() {
         type: "ADD_SCHEDULE",
         payload: {
           schedule: {
+            username: userInfo.name,
             topics: input.topics,
             email: userInfo.email,
             interviewDate: input.date.replace("T", " "),

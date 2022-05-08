@@ -5,8 +5,7 @@ import { useAuth } from "../../context";
 import "./userProfile.css";
 function UserProfile() {
   const navigate = useNavigate();
-  const { logoutHandler } = useAuth();
-
+  const { logoutHandler, userInfo } = useAuth();
   return (
     <div className="w-screen userProfile flex justify-center items-center">
       <div className="userProfile flex justify-center items-start mt-40 w-1/2">
@@ -14,9 +13,7 @@ function UserProfile() {
           <div className="flex justify-between items-center">
             <h1 className="text-2xl ">Profile</h1>
             <button
-              onClick={() => {
-                logoutHandler();
-              }}
+              onClick={logoutHandler}
               className="bg-red-600 px-2 py-1 rounded-lg"
             >
               Logout
@@ -24,11 +21,11 @@ function UserProfile() {
           </div>
           <div className="flex py-1">
             <p className="pr-2 w-20">Name:</p>
-            <p className="px-2 grow">Lindsay R. Schall</p>
+            <p className="px-2 grow">{userInfo.username}</p>
           </div>
           <div className="flex py-1">
             <p className="pr-2 w-20">Email:</p>
-            <p className="px-2 grow">LindsayR.Schall@gmail.com</p>
+            <p className="px-2 grow">{userInfo.email}</p>
           </div>
           <div className="flex">
             <p className="pr-2 w-20">DiscordID:</p>

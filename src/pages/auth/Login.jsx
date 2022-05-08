@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context";
 
@@ -16,9 +17,10 @@ export function Login() {
     setPassword("");
   };
 
-  if (token) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (token) navigate("/");
+  }, [token]);
+
   return (
     <div className="bg-background w-full h-screen px-4 py-6 flex flex-col justify-center sm:py-12">
       <div className="w-1/4 xl:w-2/5 py-3 sm:max-w-xl mx-auto text-center md:w-3/4">

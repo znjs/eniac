@@ -8,9 +8,9 @@ import {
   auth,
   collection,
   db,
-  signOut,
   getDocs,
   query,
+  signOut,
   where,
 } from "../../firebase/firebase.config";
 
@@ -79,7 +79,6 @@ const AuthProvider = ({ children }) => {
       console.log(error);
     }
   };
-
   const logoutHandler = () => {
     signOut(auth);
     localStorage.removeItem("token");
@@ -88,7 +87,6 @@ const AuthProvider = ({ children }) => {
     setUser(null);
     setUserInfo(null);
   };
-
   return (
     <AuthContext.Provider
       value={{
