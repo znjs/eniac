@@ -3,7 +3,6 @@ import { useAuth } from "../../context";
 
 function InterviewInfo({ schedule }) {
   const { userInfo } = useAuth();
-  console.log(schedule, "interview info");
   return (
     <div className="bg-gray-900 p-4 my-3 rounded-lg">
       {schedule.interviewee === "" ? (

@@ -33,10 +33,9 @@ function App() {
     })();
   }, [location.pathname]);
 
-  console.log(state, "app");
   return (
     <div className="bg-background h-screen text-txt-color">
-      {/* <ToastContainer
+      <ToastContainer
         position="top-right"
         style={{ top: "4.5em", right: "0em" }}
         autoClose={2000}
@@ -47,7 +46,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      /> */}
+      />
       <NavBar />
       <Routes>
         <Route path="/sign-in" element={<Login />} />

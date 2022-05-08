@@ -23,8 +23,6 @@ function UserProfile() {
         ].sort((a, b) => new Date(a.date) - new Date(b.date)),
       );
   }, [state.schedules]);
-  console.log(filteredSchedules, "filter sch");
-  console.log(state, "usrpro");
 
   return (
     <div className="w-screen userProfile flex justify-center items-center">

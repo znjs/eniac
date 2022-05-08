@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
           .replace(/-/g, " ")
           .toUpperCase();
         toast.error(`${msg} !`);
-        console.log(error.message);
+        console.error(error.message);
       }
     }
   };
@@ -76,7 +76,7 @@ const AuthProvider = ({ children }) => {
         toast.success(`Account Created Successfully!`);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   const logoutHandler = () => {
