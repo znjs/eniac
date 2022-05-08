@@ -23,7 +23,7 @@ function UserProfile() {
     <div className="w-screen userProfile flex justify-center items-center">
       {userInfo && (
         <div className="userProfile flex justify-center items-start mt-40 w-1/2">
-          <div className="bg-gray-900 p-4 rounded-lg">
+          <div className="bg-gray-900 p-4 rounded-lg w-80">
             <div className="flex justify-between items-center flex-wrap">
               <h1 className="text-2xl ">Profile</h1>
               <button
@@ -34,12 +34,12 @@ function UserProfile() {
               </button>
             </div>
             <div className="flex py-1 flex-wrap">
-              <p className="pr-2 w-20">Name: {userInfo.username}</p>
-              <p className="px-2 grow"></p>
+              <p className="pr-2 w-20">Name: </p>
+              <p className="px-2 grow">{userInfo.username}</p>
             </div>
             <div className="flex py-1 flex-wrap">
-              <p className="pr-2 w-20">Email: {userInfo.email}</p>
-              <p className="px-2 grow"></p>
+              <p className="pr-2 w-20">Email: </p>
+              <p className="px-2 grow">{userInfo.email}</p>
             </div>
 
             <div className="flex flex-wrap">

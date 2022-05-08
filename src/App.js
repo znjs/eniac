@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import { NavBar, PrivateRoute } from "./components";
-import { LandingPage, Login, SignUp, UserProfile } from "./pages";
+import { LandingPage, Login, SignUp, UserListing, UserProfile } from "./pages";
 import { ToastContainer } from "react-toastify";
 
 function App() {
@@ -29,6 +29,14 @@ function App() {
           element={
             <PrivateRoute>
               <LandingPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/userListing"
+          element={
+            <PrivateRoute>
+              <UserListing />
             </PrivateRoute>
           }
         />
