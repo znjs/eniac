@@ -1,38 +1,74 @@
-/*======================
-    404 page
-=======================*/
-
-.page_404 {
-  padding: 40px 0;
-  background: #fff;
-  font-family: 'Arvo', serif;
+body {
+  background-color: #111827;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.page_404 img {
+.app {
   width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.app .text-container {
+  position: relative;
+  z-index: 1;
+  margin: 1rem 0;
+  text-align: center;
+}
+.app .text-container h1 {
+  color: white;
+  font-family: 'Pridi';
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+.app .text-container p {
+  color: #6b7280;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  margin: 0.5rem 0;
+}
+.app .text-container a {
+  color: #06b6d4;
+}
+.app .text-container a:hover {
+  border-bottom: 0.2rem solid #06b6d4;
 }
 
-.four_zero_four_bg {
-  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-  height: 400px;
-  background-position: center;
+svg {
+  background-color: #374151;
+  width: 100%;
+  overflow: visible;
+}
+svg > path:nth-child(1) {
+  fill: #4b5563;
+  stroke: #1f2937;
+}
+svg > path:nth-child(2) {
+  fill: #111827;
+}
+svg > path:nth-child(6) {
+  fill: #1f2937;
+}
+svg text {
+  fill: #6b7280;
+  font-size: 660px;
+  font-weight: 800;
+  filter: drop-shadow(0 0 50px #1f2937);
+}
+svg > path:nth-child(8) {
+  fill: #111827;
 }
 
-.four_zero_four_bg h1 {
-  font-size: 80px;
+.cactus path:nth-child(1) {
+  fill: #0e7490;
 }
-
-.four_zero_four_bg h3 {
-  font-size: 80px;
+.cactus path:nth-child(2) {
+  fill: #155e75;
 }
-
-.link_404 {
-  color: #fff !important;
-  padding: 10px 20px;
-  background: #39ac31;
-  margin: 20px 0;
-  display: inline-block;
-}
-.contant_box_404 {
-  margin-top: -50px;
+.cactus path:nth-child(3) {
+  fill: black;
 }
