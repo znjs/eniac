@@ -18,7 +18,7 @@ function UserProfile() {
       ),
     [state.schedules],
   );
-
+  console.log(userInfo, "userinfo");
   return (
     <div className="w-screen userProfile flex justify-center items-center">
       {userInfo && (
@@ -35,7 +35,7 @@ function UserProfile() {
             </div>
             <div className="flex py-1 flex-wrap">
               <p className="pr-2 w-20">Name: </p>
-              <p className="px-2 grow">{userInfo.username}</p>
+              <p className="px-2 grow">{userInfo.name}</p>
             </div>
             <div className="flex py-1 flex-wrap">
               <p className="pr-2 w-20">Email: </p>

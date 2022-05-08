@@ -45,7 +45,7 @@ function LandingPage() {
     setFilteredSchedules(
       state.schedules.filter(
         (ele) =>
-          ele.email !== userInfo.email && new Date(ele.date) > new Date(),
+          ele?.email !== userInfo?.email && new Date(ele.date) > new Date(),
       ),
     );
   }, [state.schedules]);
