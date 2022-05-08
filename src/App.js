@@ -1,5 +1,7 @@
+import { ErrorPage } from './pages';
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
+
 
 import { NavBar, PrivateRoute } from "./components";
 import { LandingPage, Login, SignUp, UserListing, UserProfile } from "./pages";
@@ -34,6 +36,7 @@ function App() {
 
   console.log(state, "app");
   return (
+
     <div className="bg-background h-screen text-txt-color">
       {/* <ToastContainer
         position="top-right"
