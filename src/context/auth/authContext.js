@@ -5,10 +5,12 @@ import {
 } from "../../services/auth-service";
 import { toast } from "react-toastify";
 import {
+  auth,
   collection,
   db,
   getDocs,
   query,
+  signOut,
   where,
 } from "../../firebase/firebase.config";
 
@@ -77,7 +79,14 @@ const AuthProvider = ({ children }) => {
       console.log(error);
     }
   };
-
+  const logoutHandler = () => {
+    signOut(auth);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setToken(null);
+    setUser(null);
+    setUserInfo(null);
+  };
   return (
     <AuthContext.Provider
       value={{
@@ -89,6 +98,7 @@ const AuthProvider = ({ children }) => {
         signUpUser,
         userInfo,
         setUserInfo,
+        logoutHandler,
       }}
     >
       {children}

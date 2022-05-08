@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -27,10 +27,9 @@ export function SignUp() {
     const { value } = event.target;
     setSignUpForm((prev) => ({ ...prev, [fieldName]: value }));
   };
-
-  if (token) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (token) navigate("/");
+  }, [token]);
 
   return (
     <div className="bg-background w-full h-screen   px-4 py-6 flex flex-col justify-center sm:py-12">

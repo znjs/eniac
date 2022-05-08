@@ -17,7 +17,7 @@ export const reducer = (state, action) => {
       };
     case "BOOK_SCHEDULE":
       const newSchedules = state.schedules.filter(
-        (schedule) => schedule._id !== action.payload.schedule._id,
+        (schedule) => schedule.uid !== action.payload.schedule.uid,
       );
       return {
         ...state,
