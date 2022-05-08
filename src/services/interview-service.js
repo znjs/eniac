@@ -7,6 +7,7 @@ export const addAndUpdateSchedule = async (
   intervieweeName,
   topics,
   schedule_uid,
+  intervieweeEmail,
 ) => {
   const scheduledRef = collection(db, "scheduleBoard");
   const scheduledData = await getDocs(scheduledRef);
@@ -21,11 +22,11 @@ export const addAndUpdateSchedule = async (
       };
     }
   });
-  console.log(tempData, intervieweeName);
   if (tempData.docId) {
     const scheduledRef = doc(db, "scheduleBoard", tempData.docId);
     await updateDoc(scheduledRef, {
       interviewee: intervieweeName,
+      intervieweeEmail,
     });
   } else {
     await addDoc(collection(db, "scheduleBoard"), {
@@ -33,6 +34,7 @@ export const addAndUpdateSchedule = async (
       email: userInfo.email,
       date: date,
       interviewee: "",
+      intervieweeEmail: "",
       topics: topics,
       uid: uuid(),
     });
