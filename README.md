@@ -35,5 +35,4 @@
   - All scheduled interviews
 - Search 
   - User can search for other users and can see their profile details
-- Notification of scheduled inteview via mail
 
