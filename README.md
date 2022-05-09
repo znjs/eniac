@@ -5,7 +5,8 @@
   A web application where you can schedule mock interviews with others.
 </div>
 
-## **Team ENIAC**
+## **Team ENIAC** 
+<a href="https://neo-portal.netlify.app">Live Link</a>
 
 1)  <a href="https://github.com/romabulani">Roma Bulani</a> (Team Lead)
 2)  <a href="https://github.com/znjs">Jaya Srikar</a>
