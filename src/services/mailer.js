@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 
 const sendMail = (name, time, user2, reply_to) => {
   var data = {
@@ -14,20 +14,20 @@ const sendMail = (name, time, user2, reply_to) => {
   };
   console.log(data);
 
-  //   axios
-  //     .post("https://api.emailjs.com/api/v1.0/email/send", data)
-  //     .then((res) => console.log(res))
-  //     .catch((err) => console.error(err));
-  // eslint-disable-next-line no-undef
-  fetch("https://api.emailjs.com/api/v1.0/email/send", {
-    method: "post",
-    body: JSON.stringify(data),
-    headers: {
-      contentType: "application/json",
-    },
-  })
-    .then((res) => console.log(res.body))
+  axios
+    .post("https://api.emailjs.com/api/v1.0/email/send", data)
+    .then((res) => console.log(res))
     .catch((err) => console.error(err));
+  //   // eslint-disable-next-line no-undef
+  //   fetch("https://api.emailjs.com/api/v1.0/email/send", {
+  //     method: "post",
+  //     body: JSON.stringify(data),
+  //     headers: {
+  //       contentType: "application/json",
+  //     },
+  //   })
+  //     .then((res) => console.log(res.body))
+  //     .catch((err) => console.error(err));
   //   $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
   //     type: "POST",
   //     data: JSON.stringify(data),

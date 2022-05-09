@@ -2,6 +2,7 @@ import React from "react";
 import { toast } from "react-toastify";
 import { useAuth, useConfirmModal, useInterview } from "../../context";
 import { addAndUpdateSchedule, sendMail } from "../../services";
+import { sendMailToUsers } from "../../services/sendMail";
 
 function OpenConfirmModal({ schedule }) {
   const { confirmModal, setConfirmModal } = useConfirmModal();
@@ -16,18 +17,19 @@ function OpenConfirmModal({ schedule }) {
       schedule.uid,
       userInfo.email,
     );
-    // sendMail(
-    //   schedule.username,
-    //   schedule.date,
-    //   schedule.interviewee,
-    //   userInfo.email,
-    // );
-    // sendMail(
-    //   schedule.interviewee,
-    //   schedule.date,
-    //   schedule.username,
-    //   schedule.intervieweeEmail,
-    // );
+    sendMail(
+      schedule.username,
+      schedule.date,
+      schedule.interviewee,
+      userInfo.email,
+    );
+    sendMail(
+      schedule.interviewee,
+      schedule.date,
+      schedule.username,
+      schedule.intervieweeEmail,
+    );
+    // sendMailToUsers("jasrikar@gmail.com", "romabulani@gmail.com");
     dispatch({ type: "BOOK_SCHEDULE", payload: { schedule } });
     setConfirmModal(false);
     toast.success(`Your interview is now Scheduled!`);
