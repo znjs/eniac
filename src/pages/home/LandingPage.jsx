@@ -51,7 +51,6 @@ function LandingPage() {
           </h3>
         )}
       </div>
-      <OpenConfirmModal />
       <InterviewScheduleModal />
     </div>
   );

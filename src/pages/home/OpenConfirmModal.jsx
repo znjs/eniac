@@ -1,8 +1,37 @@
 import React from "react";
-import { useConfirmModal } from "../../context";
+import { toast } from "react-toastify";
+import { useAuth, useConfirmModal, useInterview } from "../../context";
+import { addAndUpdateSchedule, sendMail } from "../../services";
 
-function OpenConfirmModal() {
-  const { confirmModal, setConfirmModal, setIsConfirm } = useConfirmModal();
+function OpenConfirmModal({ schedule }) {
+  const { confirmModal, setConfirmModal } = useConfirmModal();
+  const { userInfo } = useAuth();
+  const { dispatch } = useInterview();
+  const confirmHandler = async () => {
+    await addAndUpdateSchedule(
+      userInfo,
+      schedule.interviewDate,
+      userInfo.name,
+      schedule.topics,
+      schedule.uid,
+      userInfo.email,
+    );
+    // sendMail(
+    //   schedule.username,
+    //   schedule.date,
+    //   schedule.interviewee,
+    //   userInfo.email,
+    // );
+    // sendMail(
+    //   schedule.interviewee,
+    //   schedule.date,
+    //   schedule.username,
+    //   schedule.intervieweeEmail,
+    // );
+    dispatch({ type: "BOOK_SCHEDULE", payload: { schedule } });
+    setConfirmModal(false);
+    toast.success(`Your interview is now Scheduled!`);
+  };
   return (
     <>
       <div
@@ -29,7 +58,7 @@ function OpenConfirmModal() {
             <button
               className="px-4 py-1 rounded-lg bg-blue-500 text-white font-bold hover:bg-blue-400 max-w-xs mx-auto"
               onClick={() => {
-                setIsConfirm(true);
+                confirmHandler();
               }}
             >
               Confirm

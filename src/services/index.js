@@ -3,3 +3,4 @@ export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
 } from "./auth-service";
+export { sendMail } from "./mailer";

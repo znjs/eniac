@@ -22,7 +22,6 @@ function UserProfile() {
         ].sort((a, b) => new Date(a.date) - new Date(b.date)),
       );
   }, [state.schedules]);
-  console.log(filteredSchedules);
   return (
     <div className="w-screen userProfile flex-col items-center">
       {userInfo && (

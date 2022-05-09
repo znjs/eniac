@@ -1,30 +1,13 @@
 import React, { useEffect } from "react";
 import { useAuth, useConfirmModal, useInterview } from "../../context";
-import { addAndUpdateSchedule } from "../../services";
+import { addAndUpdateSchedule, sendMail } from "../../services";
 import { toast } from "react-toastify";
+import { OpenConfirmModal } from "./OpenConfirmModal";
 
 function OpenSlotCard({ schedule }) {
   const { setConfirmModal, setIsConfirm, isConfirm } = useConfirmModal();
   const { userInfo } = useAuth();
   const { dispatch } = useInterview();
-  useEffect(() => {
-    if (isConfirm) {
-      (async () => {
-        await addAndUpdateSchedule(
-          userInfo,
-          schedule.interviewDate,
-          userInfo.name,
-          schedule.topics,
-          schedule.uid,
-          userInfo.email,
-        );
-        dispatch({ type: "BOOK_SCHEDULE", payload: { schedule } });
-        setIsConfirm(false);
-        setConfirmModal(false);
-        toast.success(`Your interview is now Scheduled!`);
-      })();
-    }
-  }, [isConfirm]);
   return (
     <>
       {schedule && (
@@ -50,6 +33,7 @@ function OpenSlotCard({ schedule }) {
           </div>
         </div>
       )}
+      <OpenConfirmModal schedule={schedule} />
     </>
   );
 }

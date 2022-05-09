@@ -8,7 +8,6 @@ function UserListing({ search, setSearch }) {
   const [userList, setUserList] = useState([]);
   const [allUserList, setAllUserList] = useState([]);
 
-  console.log(search);
   useEffect(() => {
     (async () => {
       const querySnapshot = await getDocs(collection(db, "users"));
